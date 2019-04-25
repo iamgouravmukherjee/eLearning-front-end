@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { SignUpService } from "./signup.service";
 import { Subscription } from "rxjs";
+import { Router } from "@angular/router";
 
 @Component({
    selector: 'app-signup',
@@ -15,9 +16,12 @@ export class SignUpComponent implements OnInit {
    private password: string = "";
    private username: string = "";
    private selector: HTMLFormElement = null;
-   constructor(private signUpService: SignUpService) { }
+   constructor(private signUpService: SignUpService, private router: Router) { }
 
    ngOnInit() {
+      if(sessionStorage.getItem('token')) {
+         this.router.navigateByUrl('/home')
+      }
       this.observeChanges();
    }
    handleSumbit(event) {
@@ -40,7 +44,7 @@ export class SignUpComponent implements OnInit {
       }
    }
    resetForm() {
-      if(this.selector) {
+      if (this.selector) {
          this.selector.reset();
       }
    }
@@ -48,8 +52,10 @@ export class SignUpComponent implements OnInit {
       this.signUpChanges = this.signUpService.observeChanges().subscribe(response => {
          console.log('[response from server]', response);
          this.response = response;
-         if(response['status'] === true) {
-            this.resetForm();
+         if (response['status'] === true) {
+            sessionStorage.setItem('token', response['data']);
+            this.router.navigateByUrl('/home');
+            // this.resetForm();
          }
       })
    }

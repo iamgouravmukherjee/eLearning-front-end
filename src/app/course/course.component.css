@@ -1,0 +1,14 @@
+.wrapper {
+    justify-content: space-around;
+}
+
+.wrapper img {
+    height: 200px;
+    width: auto;
+}
+
+@media (max-width: 560px) {
+    .wrapper {
+        flex-direction: column;
+    }
+}

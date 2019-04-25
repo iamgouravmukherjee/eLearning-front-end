@@ -1,0 +1,60 @@
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-2">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/home">Digital Coursera</a>
+
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link text-capitalize" (click)="logout()">Sign out</a>
+        </li>
+    </ul>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <main role="main" class="col-12 pt-3 px-4">
+            <div
+                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h1 class="h2">Dashboard</h1>
+            </div>
+        </main>
+    </div>
+
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-12 col-sm-6 mb-3" *ngFor="let course of courseInfo">
+                <h3 class="heading text-uppercase">{{course.title}}</h3>
+                <p class="lead text-muted ">{{course.description}}</p>
+                <div id="courseContent" class="accordion mb-2" *ngFor="let lesson of course.lessons;let i = index">
+                    <div class="card">
+                        <a role="button" data-toggle="collapse" data-parent="#courseContent" [href]="'#collapse'+lesson._id"
+                            aria-expanded="true" [attr.aria-controls]="'collapse'+lesson._id">
+                            <div class="card-header" role="tab" [id]="'course'+lesson._id">
+                                <h5 class="mb-0 text-capitalize">{{lesson.title}} </h5>
+                            </div>
+                        </a>
+                        <div [id]="'collapse'+lesson._id" class="collapse" [attr.aria-labelledby]="'collapse'+lesson._id">
+                            <div class="card-body">
+                                <div class="mb-2">{{lesson.description}}</div>
+                                <div id="assignments" class="accordion mb-2"
+                                    *ngFor="let assignment of lesson.assignments;">
+                                    <div class="card">
+                                        <a role="button" data-toggle="collapse" data-parent="#assignments"
+                                            [href]="'#assgnmnt'+assignment._id" aria-expanded="true"
+                                            [attr.aria-controls]="'assgnmnt'+assignment._id">
+                                            <div class="card-header" role="tab">
+                                                <h5 class="mb-0 text-capitalize">{{assignment.title}}</h5>
+                                            </div>
+                                        </a>
+                                        <div [id]="'assgnmnt'+assignment._id" class="collapse px-3 py-3"
+                                            [attr.aria-labelledby]="'assgnmnt'+assignment._id">
+                                            {{assignment.description}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

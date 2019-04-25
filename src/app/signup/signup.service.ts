@@ -6,8 +6,8 @@ import { Subject } from "rxjs";
 export class SignUpService {
 
    private signupSubScription = new Subject<object>();
-   // private baseUrl: string = `http://192.168.1.9:3002`;
-   private baseUrl: string = `https://my-user-backend.herokuapp.com`;
+   private baseUrl: string = `http://192.168.43.51:3002`;
+   // private baseUrl: string = `https://my-user-backend.herokuapp.com`;
    constructor(private http: HttpClient) { }
 
    onSignUp(doc) {

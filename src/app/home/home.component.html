@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+<section class="jumbotron text-center mt-4 mt-sm-5">
+    <div class="container pt-3 pb-5">
+        <h1 class="jumbotron-heading">Digital Coursera</h1>
+        <p class="lead text-muted">
+            Teacher could not complete the syllabus? Fret not, your teacher was gracious enough to help you complete
+            your syllabus using this online platform
+        </p>
+        <p>
+            <!-- <button class="btn btn-outline-primary my-2 mr1">View courses</button> -->
+        </p>
+    </div>
+</section>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" *ngFor="let list of lists">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" alt="Thumbnail [100%x225]" [src]="list['imageUrl']"
+                        data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                    <div class="card-body">
+                        <p class="card-text">
+                            {{list['description']}}
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" [routerLink]="'/courses/'+list._id"
+                                    class="btn btn-sm btn-outline-secondary">View Course</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="text-muted">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-10">
+                <p>
+                    Please go through all the courses and try to complete it yourself. All the best!
+                </p>
+            </div>
+            <div class="col col-sm-2">
+                <p class="float-right">
+                    <a (click)="scrollTop()">Back to top</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>

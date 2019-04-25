@@ -153,17 +153,20 @@ input {
    color: #555c65;
 }
 
-.container {
+.wrapper {
    height: 100vh;
    width: 100vw;
    font-family: 'Roboto', sans-serif;
-   background: #EA5C54 ; /* Old browsers */
-  background: -moz-linear-gradient(-45deg,  #EA5C54  0%, #bb6dec 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#EA5C54 ), color-stop(100%,#bb6dec)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(-45deg,  #EA5C54  0%,#bb6dec 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(-45deg,  #EA5C54  0%,#bb6dec 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(-45deg,  #EA5C54  0%,#bb6dec 100%); /* IE10+ */
-  background: linear-gradient(135deg,  #EA5C54  0%,#bb6dec 100%); /* W3C */
+   /* background: #EA5C54 ; /* Old browsers */
+   /* background: -moz-linear-gradient(-45deg,  #EA5C54  0%, #bb6dec 100%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#EA5C54 ), color-stop(100%,#bb6dec));
+  background: -webkit-linear-gradient(-45deg,  #EA5C54  0%,#bb6dec 100%); 
+  background: -o-linear-gradient(-45deg,  #EA5C54  0%,#bb6dec 100%); 
+  background: -ms-linear-gradient(-45deg,  #EA5C54  0%,#bb6dec 100%);
+  background: linear-gradient(135deg,  #EA5C54  0%,#bb6dec 100%); */
+   background: #DE6262;
+   background: -webkit-linear-gradient(to right, #FFB88C, #DE6262);
+   background: linear-gradient(to right, #FFB88C, #DE6262);
    position: fixed;
    top: 0;
    left: 0;
@@ -174,7 +177,7 @@ input {
 }
 
 @media(max-width: 575px) {
-   .container{
+   .container {
       display: block;
    }
    .panel {
@@ -186,7 +189,7 @@ input {
 }
 
 @media(min-width: 576px) and (max-width:767px) {
-   .container{
+   .container {
       display: block;
    }
    .panel {
@@ -197,7 +200,7 @@ input {
 }
 
 @media(min-width: 768px) and (max-width: 991px) {
-   .container{
+   .container {
       display: block;
    }
    .panel {
@@ -213,7 +216,7 @@ input {
 }
 
 @media(min-width: 992px) and (max-width: 1199px) {
-   .container{
+   .container {
       display: block;
    }
    .panel {
